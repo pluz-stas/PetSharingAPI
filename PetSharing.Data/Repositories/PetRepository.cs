@@ -1,6 +1,8 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using PetSharing.Data.Contexts;
 using System.Collections.Generic;
+using PetSharing.Data.Entities;
+
 
 namespace PetSharing.Data.Repositories
 {
@@ -15,17 +17,17 @@ namespace PetSharing.Data.Repositories
 
         public IEnumerable<PetProfile> GetAll()
         {
-            return db.Pets;
+            return db.PetProfiles;
         }
 
         public PetProfile Get(int id)
         {
-            return db.Pets.Find(id);
+            return db.PetProfiles.Find(id);
         }
 
         public void Create(PetProfile pet)
         {
-            db.Pets.Add(pet);
+            db.PetProfiles.Add(pet);
         }
 
         public void Update(PetProfile pet)
@@ -35,9 +37,9 @@ namespace PetSharing.Data.Repositories
 
         public void Delete(int id)
         {
-            PetProfile pet = db.Pets.Find(id);
+            PetProfile pet = db.PetProfiles.Find(id);
             if (pet != null)
-                db.Pets.Remove(pet);
+                db.PetProfiles.Remove(pet);
         }
     }
 }

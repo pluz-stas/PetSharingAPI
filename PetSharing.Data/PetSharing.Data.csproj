@@ -16,7 +16,6 @@
 
   <ItemGroup>
     <Folder Include="Configuration\" />
-    <Folder Include="UnitOfWorks\" />
   </ItemGroup>
 
 </Project>
