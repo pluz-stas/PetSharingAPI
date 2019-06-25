@@ -12,6 +12,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\PetSharing.Contracts\PetSharing.Contracts.csproj" />
     <ProjectReference Include="..\PetSharing.Data\PetSharing.Data.csproj" />
     <ProjectReference Include="..\PetSharing.Domain\PetSharing.Domain.csproj" />
   </ItemGroup>

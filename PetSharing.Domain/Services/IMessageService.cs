@@ -7,7 +7,7 @@ namespace PetSharing.Domain.Services
 {
     public interface IMessageService
     {
-        IEnumerable<Message> GetMessages(User user, User collocutor);
+        IEnumerable<Message> GetMessages(User sender, User receiver);
         Message Create(Message messege);
         void Delete(int id);
     }

@@ -10,7 +10,7 @@ namespace PetSharing.Data.UnitOfWorks
     {
         private PetSharingDbContext db/* = new PetSharingDbContext(Options)*/;
         private UserRepository userRepository;
-        private PetRepository petRepository;
+        private PetProfileRepository petRepository;
         public UserRepository Users
         {
             get
@@ -21,12 +21,12 @@ namespace PetSharing.Data.UnitOfWorks
             }
         }
 
-        public PetRepository Pets
+        public PetProfileRepository Pets
         {
             get
             {
                 if (petRepository == null)
-                    petRepository = new PetRepository(db);
+                    petRepository = new PetProfileRepository(db);
                 return petRepository;
             }
         }

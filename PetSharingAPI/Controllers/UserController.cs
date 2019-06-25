@@ -9,7 +9,6 @@ using Microsoft.IdentityModel.Tokens;
 using System.Security.Claims;
 using Microsoft.AspNetCore.Authorization;
 using PetSharing.Domain.Services;
-using PetSharing.Data.Entities;
 using PetSharing.Domain.Helpers;
 
 namespace PetSharingAPI.Controllers
@@ -50,14 +49,13 @@ namespace PetSharingAPI.Controllers
             };
             var token = tokenHandler.CreateToken(tokenDescriptor);
             var tokenString = tokenHandler.WriteToken(token);
-
             // return basic user info (without password) and token to store client side
             return Ok(new
             {
-                Id = user.Id,
-                Email = user.Email,
-                FullName = user.FullName,
-                Phone = user.Phone,
+                user.Id,
+                user.Email,
+                user.FullName,
+                user.Phone,
                 Token = tokenString
             });
         }
@@ -66,13 +64,10 @@ namespace PetSharingAPI.Controllers
         [HttpPost("register")]
         public IActionResult Register([FromBody]PetSharing.Domain.Models.User userDto)
         {
-            // map dto to entity
-            var user = _mapper.Map<User>(userDto);
-
             try
             {
                 // save 
-                _userService.Create(user, userDto.Password);
+                _userService.Create(userDto, userDto.Password);
                 return Ok();
             }
             catch (Exception ex)
@@ -86,7 +81,7 @@ namespace PetSharingAPI.Controllers
         public IActionResult GetAll()
         {
             var users = _userService.GetAll();
-            var userDtos = _mapper.Map<IList<PetSharing.Domain.Models.User>>(users);
+            var userDtos = _mapper.Map<IList<PetSharing.Contracts.Dtos.UserDto>>(users);
             return Ok(userDtos);
         }
 
@@ -94,26 +89,24 @@ namespace PetSharingAPI.Controllers
         public IActionResult GetById(int id)
         {
             var user = _userService.GetById(id);
-            var userDto = _mapper.Map<PetSharing.Domain.Models.User>(user);
+            if (user == null)
+                return BadRequest(new { message = "User wasn't wound" });
+            var userDto = _mapper.Map<PetSharing.Contracts.Dtos.UserDto>(user);
             return Ok(userDto);
         }
 
         [HttpPut("{id}")]
         public IActionResult Update(int id, [FromBody]PetSharing.Domain.Models.User userDto)
         {
-            // map dto to entity and set id
-            var user = _mapper.Map<User>(userDto);
-            user.Id = id;
-
+            userDto.Id = id;
             try
             {
                 // save 
-                _userService.Update(user, userDto.Password);
+                _userService.Update(userDto, userDto.Password);
                 return Ok();
             }
             catch (Exception ex)
             {
-                // return error message if there was an exception
                 return BadRequest(new { message = ex.Message });
             }
         }
