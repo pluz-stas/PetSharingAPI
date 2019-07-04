@@ -3,13 +3,13 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.28307.572
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PetSharingAPI", "PetSharingAPI\PetSharingAPI.csproj", "{F855427D-1206-4FDC-882B-F1635E355064}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PetSharing.API", "PetSharingAPI\PetSharing.API.csproj", "{F855427D-1206-4FDC-882B-F1635E355064}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PetSharing.Domain", "PetSharing.Domain\PetSharing.Domain.csproj", "{1C1FAD0D-9964-480E-BC46-0A8310942C89}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PetSharing.Data", "PetSharing.Data\PetSharing.Data.csproj", "{A8EBE65A-F9DB-4EB7-BC73-5CC4B6665CDE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PetSharing.Contracts", "PetSharing.Contracts\PetSharing.Contracts.csproj", "{C7972898-2661-46FB-964D-F8597C5B5EE1}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PetSharing.Contracts", "PetSharing.Contracts\PetSharing.Contracts.csproj", "{C7972898-2661-46FB-964D-F8597C5B5EE1}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

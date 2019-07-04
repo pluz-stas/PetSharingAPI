@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using PetSharing.Data.Contexts;
+
 namespace PetSharingAPI.Controllers
 {
     [Route("api/[controller]")]

@@ -14,16 +14,16 @@ using PetSharing.Domain.Helpers;
 namespace PetSharingAPI.Controllers
 {
     //// STAS SOSET
-    [Authorize]
-    [ApiController]
+    //[Authorize]
     [Route("[controller]")]
-    public class UserController : ControllerBase
+    [ApiController]
+    public class UsersController : ControllerBase
     {
         private IUserService _userService;
         private IMapper _mapper;
         private readonly AppSettings _appSettings;
 
-        public UserController(IUserService userService, IMapper mapper, IOptions<AppSettings> appSettings)
+        public UsersController(IUserService userService, IMapper mapper, IOptions<AppSettings> appSettings)
         {
             _userService = userService;
             _mapper = mapper;
